@@ -31,8 +31,8 @@ function setData(){
                 <td style="vertical-align:middle">`+postDetail+`</td>
                 <td style="vertical-align:middle">`+postPrice+`</td>
                 <td style="vertical-align:middle">
-                    <a href="#" class="btn btn-success btn-circle approve" id="`+postId+`" data='`+data+`'><i class="fas fa-check"></i></a>
-                    <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
+                    <a href="#" class="btn btn-success btn-circle approve"  data='`+data+`'><i class="fas fa-check"></i></a>
+                    <a href="#" class="btn btn-danger btn-circle remove" id="`+postId+`"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         `)
@@ -45,6 +45,11 @@ $(document).ready(function(){
         value = JSON.parse($(this).attr('data'))
         firebase.database().ref('Posts/' + value.post_id).set(value);
         firebase.database().ref('PendingPosts/' + value.post_id).remove();
+        setData();
+    })
+
+    $(document).on('click', '.remove', function(e){
+        firebase.database().ref('PendingPosts/' + $(this).attr('id')).remove();
         setData();
     })
 })

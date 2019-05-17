@@ -58,7 +58,7 @@
 
         <!-- Nav Item - Phê duyệt sản phẩm -->
         <li class="nav-item">
-          <a class="nav-link" href="pheduyet.html">
+          <a class="nav-link" href="approve.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Phê duyệt sản phẩm</span></a>
           </li>
