@@ -14,6 +14,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     }
 })
 
+
 function setData(){
     var rootRef = firebase.database().ref().child('User');
     $('#dataTable').find('tbody').empty();
