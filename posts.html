@@ -300,47 +300,16 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Tên sản phẩm</th>
-                      <th>Giá</th>
-                      <th>Loại</th>
-                      <th>Độ mới</th>
-                      <th>Người đăng</th>
-                      <th>Tác vụ</th>
+                      <th>Post Image</th>
+                      <th>Post Marker</th>
+                      <th>Post Title</th>
+                      <th>Post Type</th>
+                      <th>Post Detail</th>
+                      <th>Post Price</th>
+                      <th>Functions</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Sản phẩm</th>
-                      <th>Giá</th>
-                      <th>Loại</th>
-                      <th>Độ mới</th>
-                      <th>Người đăng</th>
-                      <th>Tác vụ</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Porsche 911 GT3 RS</td>
-                      <td>1$</td>
-                      <td>Xe hơi</td>
-                      <td>90%</td>
-                      <td>Thi Viet Pham</td>
-                      <td>
-                        <a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a>
-                        <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Lamborghini Aventador LP700-4 Roadster</td>
-                      <td>1000$</td>
-                      <td>Xe hơi</td>
-                      <td>Brand new</td>
-                      <td>Thieu Quan Ngoc</td>
-                      <td>
-                        <a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a>
-                        <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
+                  <tbody id="table_body">
                   </tbody>
                 </table>
               </div>
@@ -387,7 +356,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="#" id="btnLogout">Logout</a>
         </div>
       </div>
     </div>
@@ -407,8 +376,11 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src=""></script>
+
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+	<script src="js/pages/posts/posts.js"></script>
 
 </body>
 

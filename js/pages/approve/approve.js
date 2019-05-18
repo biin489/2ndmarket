@@ -8,11 +8,16 @@ var firebaseConfig = {
     appId: "1:585840118644:web:fe4063bcae520273"
 };
 firebase.initializeApp(firebaseConfig);
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if(!firebaseUser){
+        window.location.href = "login.html"
+    }
+})
 
 function setData(){
     var rootRef = firebase.database().ref().child('PendingPosts');
     $('#dataTable').find('tbody').empty();
-    rootRef.on("child_added", async snap => {
+    rootRef.on("child_added", snap => {
         var postDetail = snap.child("post_detail").val();
         var postId = snap.child("post_id").val();
         var postImage = snap.child("post_image").val();
@@ -41,15 +46,37 @@ function setData(){
 $(document).ready(function(){
     setData();
 
-    $(document).on('click', '.approve', function(e){
+    $(document).on('click', '.approve', async function(e){
         value = JSON.parse($(this).attr('data'))
-        firebase.database().ref('Posts/' + value.post_id).set(value);
-        firebase.database().ref('PendingPosts/' + value.post_id).remove();
-        setData();
+        
+        error = false;
+        await firebase.database().ref('Posts/' + value.post_id).set(value)
+            .catch(error => {
+                if(error){
+                    alert(error);
+                }
+            });
+        await firebase.database().ref('PendingPosts/' + value.post_id).remove()
+            .catch(error => {});
+
+        await setData();
     })
 
-    $(document).on('click', '.remove', function(e){
-        firebase.database().ref('PendingPosts/' + $(this).attr('id')).remove();
-        setData();
+    $(document).on('click', '.remove', async function(e){
+        await firebase.database().ref('PendingPosts/' + $(this).attr('id')).remove()
+        .catch(error => {
+            if(error){
+                alert(error);
+            }
+        });
+        await setData();
+    });
+
+    $(document).on('click', '#btnLogout', function(e){
+        firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        }).catch(function(error) {
+        // An error happened.
+        });
     })
 })
