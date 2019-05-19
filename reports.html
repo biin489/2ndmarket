@@ -301,35 +301,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Sản phẩm</th>
-                      <th>Người bán</th>
-                      <th>Lý do báo cáo</th>
                       <th>Người báo cáo</th>
+                      <th>Người bị báo cáo</th>
+                      <th>Lý do báo cáo</th>
+                      <th>Hình ảnh</th>
                       <th>Tác vụ</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                     <th>Sản phẩm</th>
-                     <th>Người bán</th>
-                      <th>Lý do báo cáo</th>
-                      <th>Người báo cáo</th>
-                      <th>Tác vụ</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Iphone X</td>
-                      <td>Thieu Quan Ngoc</td>
-                      <td>Đồ Trung Quốc</td>
-                      <td>Thi Viet Pham</td>
-                      <td>
-                        <a href="#" class="btn btn-info btn-circle"><i class="fas fa-info-circle"></i></a>
-                        <a href="#" class="btn btn-success btn-circle"><i class="fas fa-check"></i></a>
-                        <a href="#" class="btn btn-danger btn-circle"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
-                    
+                  <tbody id="table_body">                    
                   </tbody>
                 </table>
               </div>
@@ -386,18 +365,15 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src=""></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src=""></script>
-
   <!-- Page level plugins -->
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src=""></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+	<script src="js/pages/report/report.js"></script>
 
 </body>
 
